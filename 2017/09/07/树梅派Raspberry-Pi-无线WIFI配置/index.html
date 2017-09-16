@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="Linux 运维">
 <meta property="og:description" content="配置无线网络用编辑器nano打开interfaces文件1sudo nano /etc/network/interfaces 尾部加入123456789auto loiface lo inet loopbackiface eth0 inet dhcpallow-hotplug wlan0iface wlan0 inet manualwpa-roam /etc/wpa_supplicant/wpa_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-16T05:02:21.173Z">
+<meta property="og:updated_time" content="2017-09-16T05:07:54.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树梅派Raspberry Pi 无线WIFI配置">
 <meta name="twitter:description" content="配置无线网络用编辑器nano打开interfaces文件1sudo nano /etc/network/interfaces 尾部加入123456789auto loiface lo inet loopbackiface eth0 inet dhcpallow-hotplug wlan0iface wlan0 inet manualwpa-roam /etc/wpa_supplicant/wpa_">
@@ -384,8 +384,15 @@
 <h4 id="尾部加入"><a href="#尾部加入" class="headerlink" title="尾部加入"></a>尾部加入</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">auto lo</div><div class="line"></div><div class="line">iface lo inet loopback</div><div class="line">iface eth0 inet dhcp</div><div class="line"></div><div class="line">allow-hotplug wlan0</div><div class="line">iface wlan0 inet manual</div><div class="line">wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf</div><div class="line">iface default inet dhcp</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="用编辑器nano打开wpa-supplicant-confs文件"><a href="#用编辑器nano打开wpa-supplicant-confs文件" class="headerlink" title="用编辑器nano打开wpa_supplicant.confs文件"></a>用编辑器nano打开wpa_supplicant.confs文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</div></pre></td></tr></table></figure>
-<h4 id="尾部加入-1"><a href="#尾部加入-1" class="headerlink" title="尾部加入"></a>尾部加入</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">network=&#123;</div><div class="line">ssid=<span class="string">"SSID-GOES-HERE"</span></div><div class="line">proto=RSN</div><div class="line">key_mgmt=WPA-PSK</div><div class="line">pairwise=CCMP TKIP</div><div class="line">group=CCMP TKIP</div><div class="line">psk=<span class="string">"WIFI-PASSWORD-GOES-HERE"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>原文: <a href="http://kaliwifi.com/">寻味漂漂</a></p>
+<h4 id="尾部加入-1"><a href="#尾部加入-1" class="headerlink" title="尾部加入"></a>尾部加入</h4><pre><code class="bash">network={
+ssid=<span class="string">"SSID-GOES-HERE"</span>
+proto=RSN
+key_mgmt=WPA-PSK
+pairwise=CCMP TKIP
+group=CCMP TKIP
+psk=<span class="string">"WIFI-PASSWORD-GOES-HERE"</span>
+}
+</code></pre>
 
       
     </div>

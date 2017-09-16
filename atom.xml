@@ -54,14 +54,21 @@ ctrl+c
     <link href="http://kaliwifi.com/2017/09/07/%E6%A0%91%E6%A2%85%E6%B4%BERaspberry-Pi-%E6%97%A0%E7%BA%BFWIFI%E9%85%8D%E7%BD%AE/"/>
     <id>http://kaliwifi.com/2017/09/07/树梅派Raspberry-Pi-无线WIFI配置/</id>
     <published>2017-09-07T01:47:30.000Z</published>
-    <updated>2017-09-16T05:02:21.173Z</updated>
+    <updated>2017-09-16T05:07:54.501Z</updated>
     
     <content type="html"><![CDATA[<h2 id="配置无线网络"><a href="#配置无线网络" class="headerlink" title="配置无线网络"></a>配置无线网络</h2><h3 id="用编辑器nano打开interfaces文件"><a href="#用编辑器nano打开interfaces文件" class="headerlink" title="用编辑器nano打开interfaces文件"></a>用编辑器nano打开interfaces文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano /etc/network/interfaces</div></pre></td></tr></table></figure>
 <h4 id="尾部加入"><a href="#尾部加入" class="headerlink" title="尾部加入"></a>尾部加入</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">auto lo</div><div class="line"></div><div class="line">iface lo inet loopback</div><div class="line">iface eth0 inet dhcp</div><div class="line"></div><div class="line">allow-hotplug wlan0</div><div class="line">iface wlan0 inet manual</div><div class="line">wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf</div><div class="line">iface default inet dhcp</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="用编辑器nano打开wpa-supplicant-confs文件"><a href="#用编辑器nano打开wpa-supplicant-confs文件" class="headerlink" title="用编辑器nano打开wpa_supplicant.confs文件"></a>用编辑器nano打开wpa_supplicant.confs文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</div></pre></td></tr></table></figure>
-<h4 id="尾部加入-1"><a href="#尾部加入-1" class="headerlink" title="尾部加入"></a>尾部加入</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">network=&#123;</div><div class="line">ssid=<span class="string">"SSID-GOES-HERE"</span></div><div class="line">proto=RSN</div><div class="line">key_mgmt=WPA-PSK</div><div class="line">pairwise=CCMP TKIP</div><div class="line">group=CCMP TKIP</div><div class="line">psk=<span class="string">"WIFI-PASSWORD-GOES-HERE"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>原文: <a href="http://kaliwifi.com/">寻味漂漂</a></p>
+<h4 id="尾部加入-1"><a href="#尾部加入-1" class="headerlink" title="尾部加入"></a>尾部加入</h4><pre><code class="bash">network={
+ssid=<span class="string">"SSID-GOES-HERE"</span>
+proto=RSN
+key_mgmt=WPA-PSK
+pairwise=CCMP TKIP
+group=CCMP TKIP
+psk=<span class="string">"WIFI-PASSWORD-GOES-HERE"</span>
+}
+</code></pre>
 ]]></content>
     
     <summary type="html">
@@ -83,7 +90,7 @@ ctrl+c
     <link href="http://kaliwifi.com/2017/08/07/GITHUB-HEXO%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     <id>http://kaliwifi.com/2017/08/07/GITHUB-HEXO博客搭建/</id>
     <published>2017-08-07T04:11:22.000Z</published>
-    <updated>2017-09-16T05:02:16.557Z</updated>
+    <updated>2017-09-16T05:07:43.388Z</updated>
     
     <content type="html"><![CDATA[<h2 id="HEXO环境配置"><a href="#HEXO环境配置" class="headerlink" title="HEXO环境配置"></a>HEXO环境配置</h2><p>hexo非常容易安装。然而，在你开始之前需要一些东西。</p>
 <h3 id="下载需要安装的程序"><a href="#下载需要安装的程序" class="headerlink" title="下载需要安装的程序"></a>下载需要安装的程序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">http://nodejs.org/</div><div class="line">http://git-scm.com/</div></pre></td></tr></table></figure>
@@ -129,7 +136,6 @@ ctrl+c
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div><div class="line">hexo d</div></pre></td></tr></table></figure>
 <h4 id="以下备用命令"><a href="#以下备用命令" class="headerlink" title="以下备用命令"></a>以下备用命令</h4><p>查找本文件夹所有文件所包含的文本内容:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grep -nr fonts.googleapis.com ./</div></pre></td></tr></table></figure>
-<p>原文: <a href="http://kaliwifi.com/">寻味漂漂</a></p>
 ]]></content>
     
     <summary type="html">
